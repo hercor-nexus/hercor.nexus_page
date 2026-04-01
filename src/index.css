@@ -9,3 +9,9 @@ html, body, #root {
   min-height: 100vh;
   color: #f0f0f8;
 }
+
+html, body, #root {
+  background: #080810;
+  min-height: 100vh;
+  overflow-x: hidden;
+}

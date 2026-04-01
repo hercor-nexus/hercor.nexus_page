@@ -23,7 +23,6 @@ const css = `
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     min-height: 100vh;
-    overflow-x: hidden;
   }
 
   .hn-root::before {
