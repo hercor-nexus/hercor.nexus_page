@@ -462,7 +462,7 @@ const css = `
   .hn-cta-inner { position: relative; z-index: 1; }
   .hn-cta-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -.02em;

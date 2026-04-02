@@ -46,7 +46,7 @@ const css = `
 
   .pf-hero-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 800; line-height: 1.05; letter-spacing: -.03em;
     margin-bottom: 1rem;
   }
@@ -180,7 +180,7 @@ const css = `
   }
   .pf-cta-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
     font-weight: 800; letter-spacing: -.02em; margin-bottom: .75rem;
   }
   .pf-cta-sub { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; font-weight: 300; }

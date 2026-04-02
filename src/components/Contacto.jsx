@@ -29,7 +29,7 @@ const css = `
 
   .ct-hero-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 800; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 1rem;
   }
   .ct-hero-title span {
