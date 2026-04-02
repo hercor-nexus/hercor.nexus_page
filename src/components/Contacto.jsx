@@ -187,11 +187,12 @@ export const Contacto = () => {
                   <div className="ct-contact-val"><a href="mailto:hola@hercor.nexus">hola@hercor.nexus</a></div>
                 </div>
               </div>
-              <div className="ct-contact-item">
+                <div className="ct-contact-item">
                 <div className="ct-contact-icon">💬</div>
                 <div>
                   <div className="ct-contact-label">WhatsApp</div>
-                  <div className="ct-contact-val"><a href="https://wa.me/50200000000" target="_blank" rel="noreferrer">+502 0000-0000</a></div>
+                  <div className="ct-contact-val"><a href="https://wa.me/50246895692" target="_blank" rel="noreferrer">+502 4689-5692</a></div>
+                  <div className="ct-contact-val"><a href="https://wa.me/50249754449" target="_blank" rel="noreferrer">+502 4975-4449</a></div>
                 </div>
               </div>
               <div className="ct-contact-item">
