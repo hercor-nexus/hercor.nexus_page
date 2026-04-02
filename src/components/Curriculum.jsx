@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Briefcase, Wrench, GraduationCap, Code2, Award, Info, FileText } from 'lucide-react';
 
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
@@ -12,7 +13,6 @@ const css = `
 
   .cv-root { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
 
-  /* ── HERO ── */
   .cv-hero { padding: 7rem 1.5rem 4rem; text-align: center; position: relative; overflow: hidden; }
   .cv-hero-bg {
     position: absolute; inset: 0;
@@ -42,10 +42,8 @@ const css = `
     max-width: 480px; margin: 0 auto; line-height: 1.7; font-weight: 300;
   }
 
-  /* ── LAYOUT ── */
   .cv-content { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
 
-  /* ── SECTION ── */
   .cv-section { margin-bottom: 3.5rem; }
   .cv-section-title {
     font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800;
@@ -54,11 +52,11 @@ const css = `
   .cv-section-title-icon {
     width: 34px; height: 34px; border-radius: 8px;
     background: rgba(79,110,247,0.12); border: 1px solid rgba(79,110,247,0.2);
-    display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); flex-shrink: 0;
   }
   .cv-divider { height: 1px; background: var(--border); margin-bottom: 3.5rem; }
 
-  /* ── CARDS ── */
   .cv-card {
     background: var(--card); border: 1px solid var(--border);
     border-radius: 16px; padding: 1.6rem; margin-bottom: 1rem;
@@ -87,7 +85,6 @@ const css = `
   }
   .cv-checklist li::before { content: '✓'; color: var(--accent); font-size: .8rem; margin-top: .05rem; flex-shrink: 0; }
 
-  /* ── SKILLS ── */
   .cv-skills-grid { display: flex; flex-wrap: wrap; gap: .6rem; }
   .cv-skill-tag {
     font-size: .78rem; font-weight: 500; padding: .45rem 1rem; border-radius: 8px;
@@ -96,7 +93,6 @@ const css = `
   }
   .cv-skill-tag:hover { border-color: rgba(79,110,247,.35); color: var(--white); }
 
-  /* ── INFO GRID ── */
   .cv-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   @media (max-width: 540px) { .cv-info-grid { grid-template-columns: 1fr; } }
 
@@ -109,7 +105,6 @@ const css = `
   .cv-info-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .3rem; }
   .cv-info-list li { font-size: .88rem; color: rgba(240,240,248,0.8); }
 
-  /* ── CTA BUTTON ── */
   .cv-cta-wrap { text-align: center; margin-top: 2rem; }
   .cv-cta {
     display: inline-flex; align-items: center; gap: .6rem;
@@ -120,7 +115,6 @@ const css = `
   }
   .cv-cta:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(79,110,247,.55); color: #fff; }
 
-  /* ── CERT CARD ── */
   .cv-cert-card {
     background: var(--card); border: 1px solid var(--border);
     border-radius: 12px; padding: 1.2rem 1.4rem;
@@ -131,12 +125,12 @@ const css = `
   .cv-cert-icon {
     width: 38px; height: 38px; border-radius: 8px;
     background: rgba(79,110,247,0.12); border: 1px solid rgba(79,110,247,0.2);
-    display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); flex-shrink: 0;
   }
   .cv-cert-title { font-size: .9rem; font-weight: 500; margin-bottom: .15rem; }
   .cv-cert-meta { font-size: .75rem; color: var(--muted); }
 
-  /* ── REVEAL ── */
   .hn-reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s, transform .65s; }
   .hn-reveal.visible { opacity: 1; transform: none; }
 `;
@@ -167,7 +161,6 @@ export const Curriculum = () => {
       <style>{css}</style>
       <div className="cv-root">
 
-        {/* HERO */}
         <section className="cv-hero">
           <div className="cv-hero-bg" />
           <div className="cv-hero-inner">
@@ -183,13 +176,11 @@ export const Curriculum = () => {
 
         <div className="cv-content">
 
-          {/* EXPERIENCIA */}
           <section className="cv-section hn-reveal">
             <div className="cv-section-title">
-              <div className="cv-section-title-icon">💼</div>
+              <div className="cv-section-title-icon"><Briefcase size={16} strokeWidth={1.5} /></div>
               Experiencia Profesional
             </div>
-
             <div className="cv-card">
               <div className="cv-card-header">
                 <div className="cv-card-title">Desarrollador Full Stack</div>
@@ -206,7 +197,6 @@ export const Curriculum = () => {
                 <li>Colaboré en la mejora continua de la arquitectura de software.</li>
               </ul>
             </div>
-
             <div className="cv-card">
               <div className="cv-card-header">
                 <div className="cv-card-title">Desarrollador Frontend Junior</div>
@@ -222,10 +212,9 @@ export const Curriculum = () => {
 
           <div className="cv-divider" />
 
-          {/* HABILIDADES */}
           <section className="cv-section hn-reveal">
             <div className="cv-section-title">
-              <div className="cv-section-title-icon">🛠</div>
+              <div className="cv-section-title-icon"><Wrench size={16} strokeWidth={1.5} /></div>
               Habilidades Técnicas
             </div>
             <div className="cv-skills-grid">
@@ -237,13 +226,11 @@ export const Curriculum = () => {
 
           <div className="cv-divider" />
 
-          {/* EDUCACIÓN */}
           <section className="cv-section hn-reveal">
             <div className="cv-section-title">
-              <div className="cv-section-title-icon">🎓</div>
+              <div className="cv-section-title-icon"><GraduationCap size={16} strokeWidth={1.5} /></div>
               Educación
             </div>
-
             <div className="cv-card">
               <div className="cv-card-header">
                 <div className="cv-card-title">Ingeniería en Sistemas / Desarrollo de Software</div>
@@ -254,7 +241,6 @@ export const Curriculum = () => {
                 Enfoque en desarrollo de software, algoritmos, bases de datos y metodologías ágiles.
               </p>
             </div>
-
             <div className="cv-card">
               <div className="cv-card-header">
                 <div className="cv-card-title">Curso Avanzado de React y Node.js</div>
@@ -269,16 +255,15 @@ export const Curriculum = () => {
 
           <div className="cv-divider" />
 
-          {/* PROYECTOS */}
           <section className="cv-section hn-reveal">
             <div className="cv-section-title">
-              <div className="cv-section-title-icon">{'</>'}</div>
+              <div className="cv-section-title-icon"><Code2 size={16} strokeWidth={1.5} /></div>
               Proyectos Personales
             </div>
             <div className="cv-card" style={{ textAlign: 'center', padding: '2.5rem' }}>
               <p className="cv-card-text" style={{ marginBottom: '1.5rem', maxWidth: 460, margin: '0 auto 1.5rem' }}>
-                Mis proyectos personales reflejan mi curiosidad y dedicación — donde exploro nuevas tecnologías
-                y consolido mis habilidades en entornos reales.
+                Nuestros proyectos reflejan curiosidad y dedicación — donde exploramos nuevas tecnologías
+                y consolidamos habilidades en entornos reales.
               </p>
               <div className="cv-cta-wrap">
                 <Link to="/portafolio" className="cv-cta">
@@ -290,15 +275,13 @@ export const Curriculum = () => {
 
           <div className="cv-divider" />
 
-          {/* CERTIFICACIONES */}
           <section className="cv-section hn-reveal">
             <div className="cv-section-title">
-              <div className="cv-section-title-icon">🏆</div>
+              <div className="cv-section-title-icon"><Award size={16} strokeWidth={1.5} /></div>
               Reconocimientos y Certificaciones
             </div>
-
             <div className="cv-cert-card">
-              <div className="cv-cert-icon">📜</div>
+              <div className="cv-cert-icon"><FileText size={16} strokeWidth={1.5} /></div>
               <div>
                 <div className="cv-cert-title">Certificación en Aplicación Estratégica en el uso de herramientas IA para la Enseñanza</div>
                 <div className="cv-cert-meta">CITE-UMG · 2023</div>
@@ -308,10 +291,9 @@ export const Curriculum = () => {
 
           <div className="cv-divider" />
 
-          {/* INFO ADICIONAL */}
           <section className="cv-section hn-reveal">
             <div className="cv-section-title">
-              <div className="cv-section-title-icon">ℹ️</div>
+              <div className="cv-section-title-icon"><Info size={16} strokeWidth={1.5} /></div>
               Información Adicional
             </div>
             <div className="cv-info-grid">

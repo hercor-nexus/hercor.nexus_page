@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Globe, Settings, Smartphone, Database, BarChart2, Shield, Package, Building2, Bike } from 'lucide-react';
 
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
@@ -35,7 +36,6 @@ const css = `
     opacity: .6;
   }
 
-  /* ── HERO ── */
   .hn-hero {
     min-height: 100vh;
     display: flex;
@@ -87,7 +87,7 @@ const css = `
     50% { opacity: .4; }
   }
 
-.hn-title {
+  .hn-title {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: clamp(2.5rem, 6vw, 5rem);
@@ -170,7 +170,6 @@ const css = `
     text-decoration: none;
   }
 
-  /* ── STATS ── */
   .hn-stats {
     display: flex;
     justify-content: center;
@@ -195,7 +194,6 @@ const css = `
   }
   .hn-stat-label { color: var(--muted); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; margin-top: .25rem; }
 
-  /* ── SECTIONS ── */
   .hn-section { padding: 6rem 1.5rem; max-width: 1100px; margin: 0 auto; }
 
   .hn-section-label {
@@ -233,7 +231,6 @@ const css = `
     font-weight: 300;
   }
 
-  /* ── SERVICIOS ── */
   .hn-services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -264,7 +261,12 @@ const css = `
   .hn-service-card:hover { background: #17172a; }
   .hn-service-card:hover::after { transform: scaleX(1); }
 
-  .hn-service-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+  .hn-service-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(79,110,247,0.12); border: 1px solid rgba(79,110,247,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); margin-bottom: 1.2rem;
+  }
   .hn-service-name {
     font-family: 'Syne', sans-serif;
     font-size: 1.15rem;
@@ -273,7 +275,6 @@ const css = `
   }
   .hn-service-desc { color: var(--muted); font-size: .9rem; line-height: 1.6; font-weight: 300; }
 
-  /* ── FEATURED ── */
   .hn-featured {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -355,7 +356,6 @@ const css = `
   .hn-mock-body { padding: 1.2rem; }
   .hn-mock-row { height: 10px; background: rgba(255,255,255,0.08); border-radius: 6px; margin-bottom: .6rem; }
 
-  /* ── PROYECTOS GRID ── */
   .hn-projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -384,10 +384,10 @@ const css = `
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--accent);
     position: relative;
     overflow: hidden;
   }
-  .hn-card-emoji { font-size: 3rem; position: relative; z-index: 1; }
   .hn-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
   .hn-card-title {
     font-family: 'Syne', sans-serif;
@@ -397,7 +397,6 @@ const css = `
   }
   .hn-card-desc { color: var(--muted); font-size: .875rem; line-height: 1.6; font-weight: 300; flex: 1; }
 
-  /* ── TEAM ── */
   .hn-team-grid {
     display: flex;
     justify-content: center;
@@ -447,7 +446,6 @@ const css = `
   .hn-team-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; }
   .hn-team-role { color: var(--muted); font-size: .82rem; margin-top: .3rem; }
 
-  /* ── CTA FINAL ── */
   .hn-cta {
     text-align: center;
     padding: 7rem 1.5rem;
@@ -477,7 +475,6 @@ const css = `
     margin: 0 auto;
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -493,45 +490,22 @@ const css = `
     transform: none;
   }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-  .hn-title {
-    font-size: clamp(1.6rem, 8vw, 2.8rem);
-    letter-spacing: -.02em;
-    word-break: break-all;
-  }
-    .hn-hero {
-      padding: 5rem 1.25rem 3rem;
+    .hn-title {
+      font-size: clamp(1.6rem, 8vw, 2.8rem);
+      letter-spacing: -.02em;
+      word-break: break-all;
     }
-    .hn-featured {
-      grid-template-columns: 1fr;
-    }
-    .hn-featured-content {
-      padding: 2rem 1.5rem;
-    }
-    .hn-featured-visual {
-      min-height: 200px;
-    }
-    .hn-stats {
-      gap: 1.5rem;
-      margin: 0 0;
-    }
-    .hn-section {
-      padding: 4rem 1.25rem;
-    }
-    .hn-services-grid {
-      grid-template-columns: 1fr;
-    }
-    .hn-projects-grid {
-      grid-template-columns: 1fr;
-    }
-    .hn-team-card {
-      width: 100%;
-      max-width: 320px;
-    }
-    .hn-cta {
-      padding: 5rem 1.25rem;
-    }
+    .hn-hero { padding: 5rem 1.25rem 3rem; }
+    .hn-featured { grid-template-columns: 1fr; }
+    .hn-featured-content { padding: 2rem 1.5rem; }
+    .hn-featured-visual { min-height: 200px; }
+    .hn-stats { gap: 1.5rem; margin: 0 0; }
+    .hn-section { padding: 4rem 1.25rem; }
+    .hn-services-grid { grid-template-columns: 1fr; }
+    .hn-projects-grid { grid-template-columns: 1fr; }
+    .hn-team-card { width: 100%; max-width: 320px; }
+    .hn-cta { padding: 5rem 1.25rem; }
   }
 `;
 
@@ -580,18 +554,18 @@ export const Inicio = () => {
   useReveal();
 
   const services = [
-    { icon: '🌐', name: 'Desarrollo Web', desc: 'Sitios y aplicaciones modernas, rápidas y responsivas. Desde landing pages hasta plataformas completas.' },
-    { icon: '⚙️', name: 'Sistemas a Medida', desc: 'Software personalizado que automatiza y optimiza los procesos únicos de tu negocio.' },
-    { icon: '📱', name: 'Apps & PWA', desc: 'Aplicaciones progresivas y móviles que funcionan en cualquier dispositivo, sin instalar nada.' },
-    { icon: '🗄️', name: 'Backend & APIs', desc: 'Infraestructura robusta en AWS con bases de datos, APIs REST y procesos automatizados.' },
-    { icon: '📊', name: 'Reportes & Dashboard', desc: 'Paneles de control, reportes PDF/Excel y estadísticas en tiempo real para tomar mejores decisiones.' },
-    { icon: '🔒', name: 'Mantenimiento', desc: 'Soporte técnico continuo, actualizaciones y mejoras para que tu sistema nunca falle.' },
+    { icon: <Globe size={20} strokeWidth={1.5} />, name: 'Desarrollo Web', desc: 'Sitios y aplicaciones modernas, rápidas y responsivas. Desde landing pages hasta plataformas completas.' },
+    { icon: <Settings size={20} strokeWidth={1.5} />, name: 'Sistemas a Medida', desc: 'Software personalizado que automatiza y optimiza los procesos únicos de tu negocio.' },
+    { icon: <Smartphone size={20} strokeWidth={1.5} />, name: 'Apps & PWA', desc: 'Aplicaciones progresivas y móviles que funcionan en cualquier dispositivo, sin instalar nada.' },
+    { icon: <Database size={20} strokeWidth={1.5} />, name: 'Backend & APIs', desc: 'Infraestructura robusta en AWS con bases de datos, APIs REST y procesos automatizados.' },
+    { icon: <BarChart2 size={20} strokeWidth={1.5} />, name: 'Reportes & Dashboard', desc: 'Paneles de control, reportes PDF/Excel y estadísticas en tiempo real para tomar mejores decisiones.' },
+    { icon: <Shield size={20} strokeWidth={1.5} />, name: 'Mantenimiento', desc: 'Soporte técnico continuo, actualizaciones y mejoras para que tu sistema nunca falle.' },
   ];
 
   const otherProjects = [
-    { emoji: '📦', tag: 'Sistema', title: 'Sistema de Inventario', desc: 'Control de productos en tiempo real con base de datos, alertas de stock y reportes automáticos.', techs: ['React', 'Node.js', 'PostgreSQL'] },
-    { emoji: '🏢', tag: 'Corporativo', title: 'Plataforma Corporativa', desc: 'Gestión de usuarios, roles y operaciones empresariales en una sola plataforma unificada.', techs: ['React', 'AdonisJS', 'AWS'] },
-    { emoji: '🛵', tag: 'App', title: 'App de Servicios', desc: 'Aplicación de pedidos y servicios a domicilio con seguimiento en tiempo real.', techs: ['React', 'Express', 'Maps API'] },
+    { icon: <Package size={36} strokeWidth={1} />, tag: 'Sistema', title: 'Sistema de Inventario', desc: 'Control de productos en tiempo real con base de datos, alertas de stock y reportes automáticos.', techs: ['React', 'Node.js', 'PostgreSQL'] },
+    { icon: <Building2 size={36} strokeWidth={1} />, tag: 'Corporativo', title: 'Plataforma Corporativa', desc: 'Gestión de usuarios, roles y operaciones empresariales en una sola plataforma unificada.', techs: ['React', 'AdonisJS', 'AWS'] },
+    { icon: <Bike size={36} strokeWidth={1} />, tag: 'App', title: 'App de Servicios', desc: 'Aplicación de pedidos y servicios a domicilio con seguimiento en tiempo real.', techs: ['React', 'Express', 'Maps API'] },
   ];
 
   return (
@@ -645,7 +619,7 @@ export const Inicio = () => {
           <div className="hn-services-grid">
             {services.map((s, i) => (
               <div className="hn-service-card" key={i}>
-                <span className="hn-service-icon">{s.icon}</span>
+                <div className="hn-service-icon">{s.icon}</div>
                 <div className="hn-service-name">{s.name}</div>
                 <div className="hn-service-desc">{s.desc}</div>
               </div>
@@ -688,7 +662,7 @@ export const Inicio = () => {
             {otherProjects.map((p, i) => (
               <div className="hn-project-card" key={i}>
                 <div className="hn-card-visual">
-                  <span className="hn-card-emoji">{p.emoji}</span>
+                  {p.icon}
                 </div>
                 <div className="hn-card-body">
                   <span className="hn-project-tag" style={{ marginBottom: '.75rem' }}>{p.tag}</span>

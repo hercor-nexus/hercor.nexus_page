@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Globe, Settings, Smartphone, Database, Cloud, Wrench } from 'lucide-react';
 
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
@@ -12,7 +13,6 @@ const css = `
 
   .sv-root { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
 
-  /* HERO */
   .sv-hero {
     padding: 7rem 1.5rem 5rem; text-align: center; position: relative; overflow: hidden;
   }
@@ -44,7 +44,6 @@ const css = `
     max-width: 540px; margin: 0 auto; line-height: 1.7; font-weight: 300;
   }
 
-  /* MAIN SERVICES */
   .sv-main { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
 
   .sv-big-grid {
@@ -73,7 +72,7 @@ const css = `
     width: 52px; height: 52px; border-radius: 12px;
     background: rgba(79,110,247,0.12); border: 1px solid rgba(79,110,247,0.2);
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; margin-bottom: 1.5rem;
+    color: var(--accent); margin-bottom: 1.5rem;
   }
   .sv-card-name {
     font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
@@ -90,7 +89,6 @@ const css = `
   .sv-card-list li:last-child { border-bottom: none; }
   .sv-card-list li::before { content: '→'; color: var(--accent); font-size: .75rem; flex-shrink: 0; }
 
-  /* HOW WE WORK */
   .sv-process { padding: 2rem 1.5rem 5rem; max-width: 1100px; margin: 0 auto; }
   .sv-section-head { margin-bottom: 3.5rem; }
   .sv-section-title {
@@ -123,7 +121,6 @@ const css = `
   }
   .sv-step-desc { color: var(--muted); font-size: .82rem; line-height: 1.6; font-weight: 300; }
 
-  /* TECH STACK */
   .sv-stack { padding: 2rem 1.5rem 5rem; max-width: 1100px; margin: 0 auto; }
   .sv-stack-grid {
     display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.5rem;
@@ -133,12 +130,9 @@ const css = `
     background: var(--card); border: 1px solid var(--border);
     border-radius: 999px; font-size: .85rem; color: var(--white);
     font-weight: 400; transition: border-color .2s, transform .2s;
-    display: flex; align-items: center; gap: .5rem;
   }
   .sv-stack-pill:hover { border-color: rgba(79,110,247,.4); transform: translateY(-2px); }
-  .sv-stack-pill span { font-size: 1rem; }
 
-  /* CTA */
   .sv-cta {
     text-align: center; padding: 6rem 1.5rem;
     border-top: 1px solid var(--border);
@@ -175,37 +169,37 @@ const css = `
 
 const services = [
   {
-    icon: '🌐',
+    icon: <Globe size={22} strokeWidth={1.5} />,
     name: 'Desarrollo Web',
     desc: 'Sitios y aplicaciones modernas que cargan rápido, se ven bien en cualquier dispositivo y están listas para escalar.',
     list: ['Landing pages & sitios corporativos', 'Aplicaciones web complejas', 'Optimización SEO & rendimiento', 'Diseño responsivo mobile-first'],
   },
   {
-    icon: '⚙️',
+    icon: <Settings size={22} strokeWidth={1.5} />,
     name: 'Sistemas a Medida',
     desc: 'Software hecho exactamente para tu negocio. Sin soluciones genéricas: analizamos tu flujo y construimos algo que realmente funcione.',
     list: ['Gestión de clientes & ventas', 'Control de inventarios', 'Sistemas de cobranzas & préstamos', 'Facturación y reportes automáticos'],
   },
   {
-    icon: '📱',
+    icon: <Smartphone size={22} strokeWidth={1.5} />,
     name: 'Apps & PWA',
     desc: 'Aplicaciones progresivas que se instalan como apps nativas pero funcionan desde el navegador. Cero fricción para el usuario final.',
     list: ['Progressive Web Apps (PWA)', 'Apps de pedidos & servicios', 'Notificaciones push', 'Funcionan offline'],
   },
   {
-    icon: '🗄️',
+    icon: <Database size={22} strokeWidth={1.5} />,
     name: 'Backend & APIs',
     desc: 'La columna vertebral de cualquier sistema. Bases de datos robustas, APIs bien diseñadas y servidores que no se caen.',
     list: ['APIs REST con AdonisJS / Express', 'Bases de datos PostgreSQL & MySQL', 'Autenticación & roles de usuario', 'Procesos automatizados & cron jobs'],
   },
   {
-    icon: '☁️',
+    icon: <Cloud size={22} strokeWidth={1.5} />,
     name: 'Deploy & AWS',
     desc: 'Tu sistema en producción, seguro y monitoreado. Configuramos servidores, dominios, HTTPS y te dejamos listo para operar.',
-    list: ['AWS EC2 & S3', 'PM2 process management', 'SSL con Let\'s Encrypt', 'GitHub Pages & dominios custom'],
+    list: ['AWS EC2 & S3', 'PM2 process management', "SSL con Let's Encrypt", 'GitHub Pages & dominios custom'],
   },
   {
-    icon: '🔧',
+    icon: <Wrench size={22} strokeWidth={1.5} />,
     name: 'Mantenimiento',
     desc: 'Soporte técnico continuo para que tu sistema nunca falle. Actualizaciones, mejoras y resolución de bugs con respuesta rápida.',
     list: ['Soporte mensual recurrente', 'Actualizaciones de seguridad', 'Nuevas funcionalidades', 'Monitoreo y respaldo de datos'],
@@ -220,13 +214,9 @@ const steps = [
 ];
 
 const stack = [
-  { icon: '⚛️', name: 'React' }, { icon: '🟢', name: 'Node.js' },
-  { icon: '🔷', name: 'AdonisJS v6' }, { icon: '🐘', name: 'PostgreSQL' },
-  { icon: '🗃️', name: 'MySQL' }, { icon: '☁️', name: 'AWS EC2' },
-  { icon: '🐧', name: 'Ubuntu Server' }, { icon: '⚡', name: 'Vite' },
-  { icon: '🎨', name: 'Tailwind CSS' }, { icon: '📄', name: 'PDF Reports' },
-  { icon: '📊', name: 'Excel Export' }, { icon: '🔒', name: 'JWT Auth' },
-  { icon: '📱', name: 'PWA' }, { icon: '🔄', name: 'PM2' },
+  'React', 'Node.js', 'AdonisJS v6', 'PostgreSQL', 'MySQL',
+  'AWS EC2', 'Ubuntu Server', 'Vite', 'Tailwind CSS',
+  'PDF Reports', 'Excel Export', 'JWT Auth', 'PWA', 'PM2',
 ];
 
 function useReveal() {
@@ -301,9 +291,7 @@ export const Servicios = () => {
           </div>
           <div className="sv-stack-grid">
             {stack.map((t, i) => (
-              <div className="sv-stack-pill" key={i}>
-                <span>{t.icon}</span> {t.name}
-              </div>
+              <div className="sv-stack-pill" key={i}>{t}</div>
             ))}
           </div>
         </section>
